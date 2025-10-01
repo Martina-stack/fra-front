@@ -1,8 +1,19 @@
 // src/App.jsx
-import MainPage from './MainPage'
+import React from "react";
+import ReactDOM from 'react-dom/client'
+import MainPage from "./MainPage";
+import GovernmentDashboard from "./GovernmentDashboard";
+import "./GovernmentDashboard.css";   // dashboard styles
 
 function App() {
-  return <MainPage />
-}
+  return (
+    <div>
+      {/* Main page content */}
+      <MainPage />
 
-export default App
+      {/* Government dashboard right below (or wherever you like) */}
+      <GovernmentDashboard />
+    </div>
+  );
+}
+export default App;
