@@ -1,10 +1,8 @@
 // src/App.jsx
-import React from "react";
-import ReactDOM from 'react-dom/client'
 import MainPage from "./MainPage";
 import GovernmentDashboard from "./GovernmentDashboard";
-import "./GovernmentDashboard.css";   // dashboard styles
-
+import SchemesPage from "./SchemesPage"; 
+import DownloadsPage from "./DownloadsPage";
 function App() {
   return (
     <div>
@@ -13,6 +11,12 @@ function App() {
 
       {/* Government dashboard right below (or wherever you like) */}
       <GovernmentDashboard />
+
+      <SchemesPage /> {/* Schemes page component */}
+
+      <DownloadsPage /> {/* Download icon from lucide-react */}
+
+      
     </div>
   );
 }

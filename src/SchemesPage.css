@@ -1,0 +1,182 @@
+/* Container */
+.schemes-container {
+  width: 100%;          /* full page width */
+  max-width: 1200px;    /* optional, to not stretch too much on very wide screens */
+  margin: 0 auto;       /* center on wide screens */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #fdfdf5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5dc;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.new-btn {
+  background: #1b8f3d;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.new-btn:hover {
+  background: #147030;
+}
+
+/* Schemes Table */
+.schemes-table {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 14px;
+  width: 100%;            /* full width */
+  box-sizing: border-box;
+  overflow-x: auto;        /* handle smaller screens */
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.schemes-table h2 {
+  margin-bottom: 6px;
+}
+
+.schemes-table p {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 13px;
+}
+
+.schemes-table table {
+  width: 100%;             /* expand to full space */
+  border-collapse: separate;
+  border-spacing: 0 12px;  /* spacing between rows */
+}
+
+.schemes-table th {
+  text-align: left;
+  color: #444;
+  padding-bottom: 8px;
+  font-size: 13px;
+  width: auto; 
+}
+
+.schemes-table td {
+  background: #fff;
+  padding: 14px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);  /* subtle depth */
+width: auto; 
+}
+
+/* Add horizontal line between rows */
+.schemes-table tbody tr + tr td {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Status tags */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.status.active { background: #d4f7d4; color: #107010; }
+.status.pending { background: #fff2cc; color: #a87900; }
+.status.rejected { background: #f7d4d4; color: #a01010; }
+
+/* Beneficiaries with icon aligned */
+.user-icon {
+  margin-right: 5px;
+  color: #1b8f3d;
+}
+
+/* Modal popup */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fffbe7;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.modal-content h2 {
+  margin-bottom: 4.5px;
+  font-size: 18px;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.modal-content form label {
+  display: block;
+  margin-top: 15px;
+  font-size: 13px;
+  font-weight: Italic;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 0.5px solid #fffbe7;
+  border-radius: 4px;
+}
+
+.form-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+button.cancel {
+  background: #ddd;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+}
+
+button.create {
+  background: #1b8f3d;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+}

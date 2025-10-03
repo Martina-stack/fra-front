@@ -1,0 +1,144 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  font-weight: 300;
+  background-color: #f7efd7;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #53575e;
+  font-weight: 500;
+}
+
+.stat-subtext {
+  font-size: 0.75rem;
+  color: #6a707a;
+    font-weight: 400;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-value-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-right: 0.5rem;
+}
+
+.stat-value.accepted {
+  color: #10b981;
+}
+
+.stat-value.rejected {
+  color: #ef4444;
+}
+
+.stat-value.pending {
+  color: #f59e0b;
+}
+
+.stat-subtext {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.breakdown-section {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.breakdown-title {
+  font-size: 1.25rem;
+  font-weight: 4000;
+  margin-bottom: 0.5rem;
+}
+
+.breakdown-subtitle {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.breakdown-table th{
+    padding: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.breakdown-table td {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 300;
+}
+
+.breakdown-table th {
+  background: #f7fafc;
+}
+
+.breakdown-table tr:nth-child(even) {
+  background: #f7fafc;
+}
+
+.stat-icon {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.stat-icon.accepted {
+  color: #10b981;
+}
+
+.stat-icon.rejected {
+  color: #ef4444;
+}
+
+.stat-icon.pending {
+  color: #f59e0b;
+}
+
+.status-icon {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.status-icon.accepted {
+  color: #10b981;
+}
+
+.status-icon.rejected {
+  color: #ef4444;
+}
+
+.status-icon.pending {
+  color: #f59e0b;
+}

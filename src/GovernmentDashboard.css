@@ -37,7 +37,9 @@
   display: flex;    
   flex-direction: column;
   justify-content: center; /* center content vertically */
-  align-items: center;    
+  align-items: center;  
+   color: inherit;
+  cursor: pointer;  
 }
 .gov-card:hover {
   transform: translateY(-4px);
