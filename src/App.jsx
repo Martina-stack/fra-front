@@ -3,6 +3,7 @@ import MainPage from "./MainPage";
 import GovernmentDashboard from "./GovernmentDashboard";
 import SchemesPage from "./SchemesPage"; 
 import DownloadsPage from "./DownloadsPage";
+import AnalyticsPage from "./AnalyticsPage"; 
 function App() {
   return (
     <div>
@@ -15,6 +16,8 @@ function App() {
       <SchemesPage /> {/* Schemes page component */}
 
       <DownloadsPage /> {/* Download icon from lucide-react */}
+
+      <AnalyticsPage /> {/* Analytics page component */}
 
       
     </div>
