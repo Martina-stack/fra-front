@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ClipboardCheck, BarChart3, Users, Download } from "lucide-react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -7,122 +7,135 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  Legend,
   PieChart,
   Pie,
   Cell,
-  Legend,
 } from "recharts";
+import {
+  ClipboardCheck,
+  BarChart3,
+  Users,
+  Download,
+} from "lucide-react";
 import "./GovernmentDashboard.css";
 
 export default function GovernmentDashboard() {
-  const schemeVillageData = [
-    { scheme: "PM Kisan", villages: 150 },
-    { scheme: "Jal Shakti", villages: 120 },
-    { scheme: "KALIA", villages: 95 },
-    { scheme: "School Upgrade", villages: 80 },
-    { scheme: "Green Cover", villages: 60 },
+  const navigate = useNavigate();
+
+  // Dummy data for bar chart
+  const schemesData = [
+    { scheme: "PM Kisan", villages: 120 },
+    { scheme: "Jal Shakti", villages: 150 },
+    { scheme: "KALIA", villages: 80 },
+    { scheme: "School Upgrade", villages: 95 },
+    { scheme: "Green Cover", villages: 110 },
   ];
 
+  // Dummy data for pie chart
   const statusData = [
-    { name: "Pending", value: 35 },
-    { name: "Approved", value: 50 },
-    { name: "Rejected", value: 15 },
+    { name: "Approved", value: 70 },
+    { name: "Pending", value: 20 },
+    { name: "Rejected", value: 10 },
   ];
 
-  const pieColors = ["#f59e0b", "#10b981", "#ef4444"]; // amber, green, red
+  const COLORS = ["#15803D", "#65A30D", "#DC2626"];
+
+  // Navigation Handlers
+  const goToSchemes = () => navigate("/schemes");
+  const goToMonitoring = () => navigate("/monitoring");
+  const goToAnalytics = () => navigate("/analytics");
+  const goToDownloads = () => navigate("/downloads");
 
   return (
     <div className="gov-dashboard">
-      <header className="gov-header">
-        <h1>Government Dashboard</h1>
-      </header>
+      {/* Header Section */}
+      <div className="gov-header">
+        <h1>Dashboard</h1>
+        <div className="gov-header-actions">
+          <input type="text" placeholder="Search schemes or applications..." />
+        </div>
+      </div>
 
-      {/* Cards */}
-      <main className="gov-main">
-        <section className="gov-card">
-          <ClipboardCheck />
-          <h2>Schemes</h2>
-          <p>Track and manage all government schemes.</p>
-        </section>
-        <section className="gov-card">
-          <BarChart3 />
-          <h2>Monitoring</h2>
-          <p>Monitor real-time progress of initiatives.</p>
-        </section>
-         <section className="gov-card">
-          <Users />
-          <h2>Analytics</h2>
-          <p>View analytics and reports for decision making.</p>
-        </section>
-        <section className="gov-card">
-          <Download />
-          <h2>Downloads</h2>
-          <p>Download reports and data files.</p>
-        </section>
-      </main>
+      {/* Top Cards */}
+      <div className="gov-card-grid">
+        <div className="gov-card clickable" onClick={goToSchemes}>
+          <ClipboardCheck className="icon" />
+          <div>
+            <h3>Schemes</h3>
+            <p>Track and manage all government schemes.</p>
+          </div>
+        </div>
+
+        <div className="gov-card clickable" onClick={goToMonitoring}>
+          <BarChart3 className="icon" />
+          <div>
+            <h3>Monitoring</h3>
+            <p>Monitor real-time progress of initiatives.</p>
+          </div>
+        </div>
+
+        <div className="gov-card clickable" onClick={goToAnalytics}>
+          <Users className="icon" />
+          <div>
+            <h3>Analytics</h3>
+            <p>View analytics and reports for decision making.</p>
+          </div>
+        </div>
+
+        <div className="gov-card clickable" onClick={goToDownloads}>
+          <Download className="icon" />
+          <div>
+            <h3>Downloads</h3>
+            <p>Download reports and data files.</p>
+          </div>
+        </div>
+      </div>
 
       {/* Charts */}
-      <section className="chart-section">
+      <div className="gov-chart-grid">
         {/* Bar Chart */}
         <div className="chart-box">
-          <h2 className="chart-title">Villages Benefited by Schemes</h2>
-          <ResponsiveContainer width="100%" height={400}>
-  <BarChart
-    data={schemeVillageData}
-    layout="vertical"                  // horizontal bars
-    margin={{ top: 20, right: -10, left: -40, bottom: 0 }}  // more left margin for scheme names
-  >
-    {/* X-axis: Number of Villages */}
-    <XAxis type="number" label={{ value: 'No. of Villages', position: 'insideBottom', offset: -10 }}
-     barCategoryGap={20}
-    barSize={30}
-    />
-   
-
-    {/* Y-axis: Schemes */}
-    <YAxis
-      type="category"
-      dataKey="scheme"
-      width={150}                      // space for long scheme names
-      tick={{ fontSize: 14 }}
-    />
-
-    <Tooltip />
-    <Legend verticalAlign="bottom" height={0.1} />
-    
-    <Bar dataKey="villages" name="Villages Benefited" fill="#4f46e5" />
-  </BarChart>
-</ResponsiveContainer>
-
+          <h2>Villages Benefited by Schemes</h2>
+          <p>Number of villages benefited per scheme</p>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={schemesData}
+              layout="vertical"
+              margin={{ top: 20, right: 30, left: 50, bottom: 10 }}
+            >
+              <XAxis type="number" />
+              <YAxis dataKey="scheme" type="category" />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="villages" name="No. of Villages" fill="#15803D" barSize={30} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         {/* Pie Chart */}
         <div className="chart-box">
-          <h2 className="chart-title">Application Status</h2>
-         <ResponsiveContainer width="100%" height={350}>
-  <PieChart>
-    <Pie
-      data={statusData}
-      dataKey="value"
-      nameKey="name"
-      cx="50%"
-      cy="50%"
-      outerRadius={100}
-      label={({ percent }) => `${(percent * 100).toFixed(0)}%`} // ✅ percentage inside
-      labelLine={false} // remove outside lines
-    >
-      {statusData.map((entry, index) => (
-        <Cell key={index} fill={pieColors[index]} />
-      ))}
-    </Pie>
-    <Tooltip formatter={(value, name) => [`${value}`, name]} />
-    <Legend verticalAlign="bottom" align="center" wrapperStyle={{ marginTop: 20 }} />
-  </PieChart>
-</ResponsiveContainer>
-
-
+          <h2>Application Status</h2>
+          <p>Distribution of application statuses</p>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={statusData}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={80}
+                outerRadius={110}
+                paddingAngle={3}
+              >
+                {statusData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                ))}
+              </Pie>
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -1,21 +1,20 @@
 /* Container */
 .schemes-container {
   width: 100%;          /* full page width */
-  max-width: 1200px;    /* optional, to not stretch too much on very wide screens */
+  max-width: 2000px;    /* optional, to not stretch too much on very wide screens */
   margin: 0 auto;       /* center on wide screens */
   padding: 20px;
   font-family: Arial, sans-serif;
-  background: #fdfdf5;
+  background: #eaf8e3;
   min-height: 100vh;
   box-sizing: border-box;
 }
-
 /* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f5f5dc;
+  background: #d6f0ca;
   padding: 12px 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -24,7 +23,7 @@
 .header h1 {
   font-size: 22px;
   font-weight: bold;
-  color: #333;
+  color: #267020;
 }
 
 .new-btn {
@@ -54,6 +53,7 @@
 
 .schemes-table h2 {
   margin-bottom: 6px;
+  color: #107010;
 }
 
 .schemes-table p {
@@ -123,7 +123,7 @@ width: auto;
 }
 
 .modal-content {
-  background: #fffbe7;
+  background: #e4f3cb;
   padding: 20px;
   border-radius: 8px;
   width: 400px;

@@ -1,103 +1,107 @@
 .gov-dashboard {
-  font-family: Arial, sans-serif;
-  background:lwhitesmoke  ;
+  background-color: #eaf8e3;
   min-height: 100vh;
-  padding: 20px;
+  padding: 20px 40px;
+  font-family: "Segoe UI", sans-serif;
+  color: #1b1b1b;
 }
 
-/* ---------- Header ---------- */
+/* Header */
 .gov-header {
-  text-align: center;
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
+
 .gov-header h1 {
-  font-size: 2rem;
-  color: #1f2937;
-  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
-/* ---------- Cards ---------- */
-.gov-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1.5fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto 40px auto;
+.gov-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.gov-card {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
-   width: 200px;     /* fixed width */
-  height: 180px;    /* fixed height */
-  display: flex;    
-  flex-direction: column;
-  justify-content: center; /* center content vertically */
-  align-items: center;  
-   color: inherit;
-  cursor: pointer;  
+
+.gov-header-actions input {
+  padding: 8px 14px;
+  border: 1px solid #cbd5c0;
+  border-radius: 6px;
+  outline: none;
+  width: 250px;
 }
-.gov-card:hover {
+
+.gov-card.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gov-card.clickable:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-}
-.gov-card h2 {
-  font-size: 1.2rem;
-  margin: 12px 0 8px;
-  color: #101016;
-}
-.gov-card p {
-  color: #4e328f;
-  font-size: 0.95rem;
-} 
-.gov-card svg path {
-  stroke: #5634eb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------- Charts ---------- */
-.chart-section {
-  max-width: 1000px;
-  margin: 0 auto;
+
+/* Top Cards */
+.gov-card-grid {
   display: grid;
-  grid-template-columns: 1.95fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
 }
+
+.gov-card {
+  background-color: #f7fff1;
+  border: 1px solid #d1e7c2;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.gov-card .icon {
+  color: #047857;
+  width: 28px;
+  height: 28px;
+}
+
+.gov-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #14532d;
+}
+
+.gov-card p {
+  margin: 4px 0 0;
+  color: #4b5563;
+  font-size: 0.85rem;
+}
+
+/* Charts */
+.gov-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
 .chart-box {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  background-color: #f7fff1;
+  border: 1px solid #d1e7c2;
+  border-radius: 10px;
   padding: 20px;
-  width: 100%;
-  height: 550px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-.chart-title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #1f2937;
 }
 
-/* ---------- X-axis label styling & alignment ---------- */
-.villages-chart .recharts-cartesian-axis-tick text {
-  text-anchor: middle;       /* keep text centred under the tick */
-  transform: translateY(5px); /* small downward nudge for spacing */
-  fill: #111827;
-  font-size: 14px;
+.chart-box h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #14532d;
 }
 
-/* Optional: if labels are long, slant them 45° for clarity */
-/* .villages-chart .recharts-cartesian-axis-tick text {
-     transform: rotate(-45deg) translateY(10px);
-     text-anchor: end;
-   } */
-
-@media (max-width: 768px) {
-  .chart-section {
-    grid-template-columns: 1fr;
-  }
+.chart-box p {
+  color: #4b5563;
+  margin: 4px 0 10px;
+  font-size: 0.9rem;
 }

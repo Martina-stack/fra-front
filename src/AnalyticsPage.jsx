@@ -53,9 +53,6 @@ export default function AnalyticsPage() {
           <h1>Analytics</h1>
           <p>Analytics and reports for the Forest Rights Act implementation.</p>
         </div>
-        <button className="download-btn">
-          <Download size={18} /> Download Report
-        </button>
       </div>
 
       {/* Top Cards */}

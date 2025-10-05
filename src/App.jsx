@@ -1,26 +1,35 @@
-// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
 import GovernmentDashboard from "./GovernmentDashboard";
-import SchemesPage from "./SchemesPage"; 
+import SchemesPage from "./SchemesPage";
+import MonitoringPage from "./MonitoringPage";
+import AnalyticsPage from "./AnalyticsPage";
 import DownloadsPage from "./DownloadsPage";
-import AnalyticsPage from "./AnalyticsPage"; 
+
 function App() {
   return (
-    <div>
-      {/* Main page content */}
-      <MainPage />
+    <Router>
+      <Routes>
+        {/* Home includes both MainPage + Dashboard */}
+        <Route
+          path="/"
+          element={
+            <>
+              <MainPage />
+              <GovernmentDashboard />
+            </>
+          }
+        />
 
-      {/* Government dashboard right below (or wherever you like) */}
-      <GovernmentDashboard />
-
-      <SchemesPage /> {/* Schemes page component */}
-
-      <DownloadsPage /> {/* Download icon from lucide-react */}
-
-      <AnalyticsPage /> {/* Analytics page component */}
-
-      
-    </div>
+        {/* Individual routes */}
+        <Route path="/dashboard" element={<GovernmentDashboard />} />
+        <Route path="/schemes" element={<SchemesPage />} />
+        <Route path="/monitoring" element={<MonitoringPage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/downloads" element={<DownloadsPage />} />
+      </Routes>
+    </Router>
   );
 }
+
 export default App;

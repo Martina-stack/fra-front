@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './main-page.css';
 import { Users, Map, Home, Shield, Lock, Database, Landmark, Cpu, Globe, Satellite, Leaf, ChevronDown, Languages } from 'lucide-react';
 
 export default function MainPage() {
+  const navigate = useNavigate();
+
   // Accordion state for Rights section
   const [openIndex, setOpenIndex] = useState(null);
   const [chatOpen, setChatOpen] = useState(false);

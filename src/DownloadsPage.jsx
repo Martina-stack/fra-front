@@ -1,6 +1,6 @@
 import React from 'react';
 import './Download.css';
-import { User, Check, X, Clock } from 'lucide-react';
+import { User, Check, X, Clock, Download } from 'lucide-react';
 
 const DownloadsPage = () => {
   const claimsData = {
@@ -8,7 +8,6 @@ const DownloadsPage = () => {
     accepted: 1880,
     rejected: 260,
     pending: 135
-    
   };
 
   const geoBreakdown = [
@@ -22,6 +21,16 @@ const DownloadsPage = () => {
 
   return (
     <div className="container">
+
+      {/* Header */}
+      <div className="header">
+        <h1>Report</h1>
+        <button className="download-btn">
+          <Download size={18} /> Download Report
+        </button>
+      </div>
+
+      {/* Stats */}
       <div className="stats-grid">
         <div className="stat-card">
           <p className="stat-label">Total Claims</p>
@@ -35,7 +44,7 @@ const DownloadsPage = () => {
           <p className="stat-label">Accepted Claims</p>
           <div className="stat-value-container">
             <p className="stat-value accepted">{claimsData.accepted}</p>
-            <Check className="stat-icon" />
+            <Check className="stat-icon accepted" />
           </div>
           <p className="stat-subtext">Successfully processed</p>
         </div>
@@ -43,7 +52,7 @@ const DownloadsPage = () => {
           <p className="stat-label">Rejected Claims</p>
           <div className="stat-value-container">
             <p className="stat-value rejected">{claimsData.rejected}</p>
-            <X className="stat-icon" />
+            <X className="stat-icon rejected" />
           </div>
           <p className="stat-subtext">Denied applications</p>
         </div>
@@ -51,11 +60,13 @@ const DownloadsPage = () => {
           <p className="stat-label">Pending Claims</p>
           <div className="stat-value-container">
             <p className="stat-value pending">{claimsData.pending}</p>
-            <Clock className="stat-icon" />
+            <Clock className="stat-icon pending" />
           </div>
           <p className="stat-subtext">Under review</p>
         </div>
       </div>
+
+      {/* Table */}
       <div className="breakdown-section">
         <h2 className="breakdown-title">Geographic Breakdown</h2>
         <p className="breakdown-subtitle">Claim details by village and region.</p>
